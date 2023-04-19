@@ -1,0 +1,36 @@
+body{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: darkslategrey;
+}
+table {
+    margin: 20px 3%;
+    border: 1px solid #8dc3f5;
+    width: 96%;
+  }
+  th {
+    width: 20%;
+    font-size: 16px;
+    background-color: lightgray;
+    border-bottom: 1px solid #8dc3f5;
+  }
+  td {
+    width: 20%;
+    font-size: 16px;
+    background-color: rgb(241, 239, 239);
+    border-bottom: 1px solid #8dc3f5;
+    align-items: center;
+  }
+  #hyoukaran{
+    display: flex;
+    justify-content: center;
+  }
+  #score{
+    font-size: 6pc;
+    color: white;
+  }
+  #star{
+    font-size: 6pc;
+    color: darkgoldenrod;
+  }

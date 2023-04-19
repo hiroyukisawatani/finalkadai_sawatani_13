@@ -1,0 +1,84 @@
+@charset "utf-16";
+
+html{
+  max-width: 100%;
+  margin: 0 auto 0;
+}
+body {
+  font-size: 32px;
+  width: 100%;
+  justify-content: center;
+}
+header {
+  background-color: #fff;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  background-color: beige;
+  height: 100px;
+  width: 100%;
+  font-size: large;
+}
+main {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+p{
+  margin: 0;
+}
+#atama{
+  display: flex;
+  justify-content: center;
+}
+#output{
+  height: 300px;
+  width: 100%;
+  border: 1px solid;
+  overflow: scroll;
+}
+.icon{
+  height: 50px;
+}
+textarea {
+  height: 100px;
+  width: 95%;
+  font-size: 80%;
+}
+#line{
+  width: 70%;
+}
+#time{
+  font-size: small;
+}
+footer {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  background-color: beige;
+  height: 30px;
+  vertical-align: middle;
+  font-size: small;
+}
+button{
+  height: 50px;
+  width: 100px;
+  font-size: large;
+  font-weight: bold;
+}
+#move{
+  height: 50px;
+  width: 200px;
+  font-size: large;
+  font-weight: bold;
+}
+select{
+  height: 30px;
+  width: 100px;
+  font-size: large;
+  font-weight: bold;
+}
