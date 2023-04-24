@@ -7,7 +7,7 @@ function h ($value){
 }
 
 // dataファイルを変数に指定
-$dataFile = './data.txt';
+$dataFile = "./data.txt";
 
 // dataファイルを開く
 $dfp = fopen($dataFile,'r');
@@ -25,7 +25,7 @@ fclose($dfp);
 
 
 // scoreファイルを変数に指定
-$scoreFile = './score.txt';
+$scoreFile = "./score.txt";
 
 // scoreファイルを開く
 $sfp = fopen($scoreFile,'r');
