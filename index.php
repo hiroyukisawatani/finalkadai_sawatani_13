@@ -18,7 +18,7 @@ if($status==false) {
   while( $r = $stmt->fetch(PDO::FETCH_ASSOC)){ 
     $view .= '<p>';
     $view .= '<a href="detail.php?id='.$r["id"].'">';
-    $view .= $r["id"]."|".$r["name"]."|".$r["language"]."|".$r["amount"]."|".$r["sns"];
+    $view .= $r["id"]." | ".$r["name"]." | ".$r["language"]." | ".$r["amount"]." | ".$r["sns"];
     $view .= '</a>';
     $view .= "　";
     if($_SESSION["kanri_flg"]=="1"){

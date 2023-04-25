@@ -17,7 +17,7 @@ $pdo = db_conn();
 
 //３．データ登録SQL作成
 $stmt = $pdo->prepare("INSERT INTO gs_an_table(user_id,name,language,amount,sns,indate)VALUES(:user_id,:name,:language,:amount,:sns,sysdate())");
-$stmt->bindValue(':user_id', $user_id, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':name', $name, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':language', $language, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':amount', $amount, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)

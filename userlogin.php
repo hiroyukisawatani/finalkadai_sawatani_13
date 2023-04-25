@@ -34,11 +34,7 @@
         </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">ログイン</button>
-    <button onclick="location.href='./user2.php'" class="btn btn-lg btn-primary btn-block">新規登録</button>
-    <h1 class="h3 mb-3 font-weight-normal">新規登録申請はxxxxxx@gmail.comにメール（パスワードをタイトルに設定）</h1>
-
-    
-    
 </form>
+<button onclick="location.href='./user2.php'" class="btn btn-lg btn-primary btn-block">新規登録</button>
 </body>
 </html>

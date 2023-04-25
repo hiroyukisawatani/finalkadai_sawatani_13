@@ -5,7 +5,7 @@ session_start();
 //※htdocsと同じ階層に「includes」を作成してfuncs.phpを入れましょう！
 //include "../../includes/funcs.php";
 require_once("funcs.php");
-loginCheck();
+
 
 //1. POSTデータ取得
 $name      = filter_input( INPUT_POST, "name" );
@@ -18,7 +18,7 @@ $ulpw       = password_hash($ulpw, PASSWORD_DEFAULT);
 $pdo = db_conn();
 
 //３．データ登録SQL作成
-$sql = "INSERT INTO gs_user_table(user_name,ulid,ulpw,kanri_flg,life_flg)VALUES(:name,:ulid,:ulpw,:kanri_flg,0)";
+$sql = "INSERT INTO gs_user2_table(user_name,ulid,ulpw,kanri_flg,life_flg)VALUES(:name,:ulid,:ulpw,:kanri_flg,0)";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':name', $name, PDO::PARAM_STR); //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':ulid', $ulid, PDO::PARAM_STR); //Integer（数値の場合 PDO::PARAM_INT)

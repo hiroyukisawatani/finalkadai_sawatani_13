@@ -1,9 +1,11 @@
 <?php
 session_start();
-$id = $_GET["id"]; //?id~**を受け取る
+
 require_once("funcs.php");
-loginCheck();
+
 $pdo = db_conn();
+
+$id = $_GET["id"]; //?id~**を受け取る
 
 //２．データ登録SQL作成
 $stmt = $pdo->prepare("SELECT * FROM gs_an_table WHERE id=:id");
@@ -11,15 +13,12 @@ $stmt->bindValue(":id",$id,PDO::PARAM_INT);
 $status = $stmt->execute();
 
 //３．データ表示
+$view = '';
 if($status==false) {
     sql_error();
 }else{
-    $row = $stmt->fetch();
+    $result = $stmt->fetch();
 }
-
-
-
-
 ?>
 
 
@@ -28,52 +27,65 @@ if($status==false) {
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>データ更新</title>
+  <title>翻訳者データ更新</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <style>div{padding: 10px;font-size:16px;}</style>
 </head>
 <body>
 
 <!-- Head[Start] -->
-<?php include("menu.php"); ?>
+<header>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+    <div class="navbar-header"><a class="navbar-brand" href="index.php">翻訳者一覧</a></div>
+    </div>
+  </nav>
+</header>
 <!-- Head[End] -->
+
+<form method="POST" action="update.php">
+<div class="jumbotron">
+  <legend>データ詳細</legend>
+  <table style="border:solid 1p ; width:100%">
+    <tr>
+      <th style="border:solid 1px; width:25%">名前</th>
+      <th style="border:solid 1px; width:25%">SNSリンク</th>
+      <th style="border:solid 1px; width:25%">言語</th>
+      <th style="border:solid 1px; width:25%">受託金額（円／文字）：</th>
+    </tr>
+    <tr>
+      <td style="border:solid 1px; width:25%"> <?= $result['name'] ?> </td>
+      <td style="border:solid 1px; width:25%"> <?= $result['sns'] ?> </td>
+      <td style="border:solid 1px; width:25%"> <?= $result['language'] ?> </td>
+      <td style="border:solid 1px; width:25%"> <?= $result['amount'] ?> </td>
+    </tr>
+  </table>
+  </div>
 
 <!-- Main[Start] -->
 
-<!-- Main[End] -->
-
-
-
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>翻訳者を探そう</title>
-</head>
-<body>
-    <h1>評価を投稿しよう</h1>
-    <form action="write.php" method="post" enctype="multipart/form-data">
-        <p>お名前:<input type="text" name="name" size="30"></p>
-        <p>メールアドレス:<input type="text" name="email" size="30"></p>
-        <p>満足度（最高5、最低1）：
-            <select name="score">
-                <option value="">選択してください</option>
-                <option value="5">5</option>
-                <option value="4">4</option>
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-            </select></p>
-        <p>コメント:<textarea name="comment" rows="4" cols="50" ></textarea></p>
-        <p><input type="submit" value="送信"></p>
-    </form>
+  <div class="jumbotron">
+   <fieldset>
+    <legend>[編集]</legend>
+     <label>名前：<input type="text" name="name" value="<?=$result["name"]?>"></label><br>
+     <label>SNSリンク　or 連絡先：<input type="text" name="sns" value="<?=$result["sns"]?>"></label><br>
+     <label>言語：<select name="language" value="<?=$result["language"]?>">
+    <option>英語</option>
+    <option>中国語</option>
+    <option>スペイン語</option>
+    <option>その他</option>
+    </select>
+    <label>受託金額（円／文字）：<select name="amount" value="<?=$result["amount"]?>">
+    <option>1円～３円</option>
+    <option>４円～６円</option>
+    </select>
     
-</body>
-
-</main>
-
-<!--/ コンテンツ表示画面 -->
+     <input type="submit" value="送信">
+     <input type="hidden" name="id" value="<?= $result['id']?>">
+    </fieldset>
+  </div>
+</form>
+<!-- Main[End] -->
 
 
 </body>

@@ -19,7 +19,7 @@ require_once("funcs.php");
 <!-- Head[Start] -->
 <header>
     <?php echo $_SESSION["name"]; ?>
-    <?php include("menu.php"); ?>
+    <div class="navbar-header"><a class="navbar-brand" href="userlogin.php">ログイン</a></div>
 </header>
 <!-- Head[End] -->
 
