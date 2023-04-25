@@ -50,7 +50,7 @@ if($status==false) {
 <header>
   <nav class="navbar navbar-dark">
     <div class="container-fluid">
-      <div class="navbar-header"><a class="navbar-brand" href="login.php">ログイン</a></div>
+      <div class="navbar-header"><a class="navbar-brand" href="prelogin.php">ログアウト</a></div>
     </div>
   </nav>
 </header>

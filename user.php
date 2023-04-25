@@ -31,9 +31,7 @@ require_once("funcs.php");
      <label>名前：<input type="text" name="name"></label><br>
      <label>Login ID：<input type="text" name="lid"></label><br>
      <label>Login PW<input type="text" name="lpw"></label><br>
-     <label>管理FLG：
-      一般<input type="radio" name="kanri_flg" value="0">　
-      管理者<input type="radio" name="kanri_flg" value="1">
+     <input type="hidden" name="kanri_flg" value="0">　
     </label>
     <br>
      <!-- <label>退会FLG：<input type="text" name="life_flg"></label><br> -->

@@ -7,7 +7,7 @@ loginCheck();
 $pdo = db_conn();
 
 //２．データ登録SQL作成
-$stmt = $pdo->prepare("SELECT * FROM gs_an_table INNER JOIN gs_user_table ON gs_an_table.user_id=gs_user_table.id");
+$stmt = $pdo->prepare("SELECT `gs_an_table`.* FROM gs_an_table INNER JOIN gs_user_table ON gs_an_table.user_id=gs_user_table.id");
 $status = $stmt->execute();
 
 //３．データ表示
@@ -17,8 +17,8 @@ if($status==false) {
 }else{
   while( $r = $stmt->fetch(PDO::FETCH_ASSOC)){ 
     $view .= '<p>';
-    $view .= '<a href="detail.php?id='.$r["id"].'">';
-    $view .= $r["id"]."|".$r["name"]."|".$r["language"]."|".$r["amount"]."|".$r["sns"];
+    $view .= '<a href="detail2.php?id='.$r["id"].'">';
+    $view .= $r["name"]."   |   ".$r["language"]."   |   ".$r["amount"]."   |   ".$r["sns"];
     $view .= '</a>';
     $view .= "　";
 
@@ -43,7 +43,7 @@ if($status==false) {
 <header>
   <nav class="navbar navbar-dark">
     <div class="container-fluid">
-      <div class="navbar-header"><a class="navbar-brand" href="login.php">ログイン</a></div>
+      <div class="navbar-header"><a class="navbar-brand" href="prelogin.php">ログアウト</a></div>
     </div>
   </nav>
 </header>
