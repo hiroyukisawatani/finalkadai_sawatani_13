@@ -23,7 +23,7 @@ if($status==false) {
     $view .= $r["id"]." | ".$r["name"]." | ".$r["language"]." | ".$r["amount"]." | ".$r["sns"];
     $view .= '</a>';
     $view .= "　";
-    if($_SESSION["kanri_flg"]=="1"){
+    if($_SESSION["user_id"]==$r["user_id"]){
       $view .= '<a class="btn btn-danger" href="delete.php?id='.$r["id"].'">';
       $view .= '[<i class="glyphicon glyphicon-remove"></i>削除]';
       $view .= '</a>';

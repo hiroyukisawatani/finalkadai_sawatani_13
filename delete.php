@@ -15,6 +15,6 @@ $status = $stmt->execute(); //実行
 if($status==false){
   sql_error();
 }else{
-  redirect("select.php");
+  redirect("index.php");
 }
 ?>
